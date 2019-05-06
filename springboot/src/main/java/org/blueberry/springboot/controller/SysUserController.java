@@ -6,10 +6,7 @@ import org.blueberry.springboot.common.TaotaoResult;
 import org.blueberry.springboot.model.SysUser;
 import org.blueberry.springboot.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,5 +35,13 @@ public class SysUserController {
     @RequestMapping(value = "create" , method = RequestMethod.POST)
     public TaotaoResult createUser(@RequestBody SysUser user) {
         return sysUserService.createUser(user);
+    }
+
+    @ApiOperation(value="删除用户", notes="根据url的id来指定删除对象")
+    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "String")
+    @RequestMapping(value = "/delete/{id}" , method = RequestMethod.DELETE)
+    public TaotaoResult deleteUser(@PathVariable String id) throws Exception{
+        throw new Exception("测试");
+        //return sysUserService.deleteUser(id);
     }
 }
