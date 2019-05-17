@@ -25,5 +25,6 @@ public class GlobalExceptionHandler {
         errorInfo.setMessage(e.getMessage());
         errorInfo.setUrl(request.getRequestURL().toString());
         return errorInfo;
+
     }
 }
